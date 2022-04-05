@@ -3,6 +3,7 @@
   "description": "Full-featured starter for Typescript Node & Mongo Rest API server featuring NestJS\n",
   "license": "MIT",
   "scripts": {
+    "publishToHeroku": "cd ../ && git subtree push --prefix api backend main || true",
     "clean": "rimraf dist logs",
     "build": "rimraf dist && tsc -p tsconfig.build.json",
     "format": "prettier --write src test --ignore-unknown",
