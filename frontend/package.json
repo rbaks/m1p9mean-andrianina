@@ -1,8 +1,11 @@
 {
   "version": "1.0.0",
+  "license": "MIT",
   "scripts": {
+    "publishToHeroku": "cd ../ && git subtree push --prefix frontend frontend main || true",
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
+    "postinstall": "ng build --aot --prod",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "lint": "ng lint",
@@ -37,8 +40,8 @@
     "@angular-eslint/eslint-plugin-template": "13.0.1",
     "@angular-eslint/schematics": "13.0.1",
     "@angular-eslint/template-parser": "13.0.1",
-    "@angular/cli": "~13.2.0",
-    "@angular/compiler-cli": "~13.2.0",
+    "@angular/cli": "^13.3.1",
+    "@angular/compiler-cli": "^13.3.1",
     "@types/jasmine": "~3.10.0",
     "@types/moment": "^2.13.0",
     "@types/node": "^12.11.1",
