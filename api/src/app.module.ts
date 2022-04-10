@@ -9,6 +9,7 @@ import {LoggerMiddleware} from "./common/middleware/logger.middleware";
 import {GlobalAccessLogger} from "./common/accessLogger";
 import {AuthModule} from "./auth/auth.module";
 import {UserModule} from "./user/user.module";
+import {DishModule} from "./dish/dish.module";
 import config from "./config";
 
 const DEV_TRANSPORTER = {
@@ -34,6 +35,7 @@ const DEV_TRANSPORTER = {
       }),
     }),
     UserModule,
+    DishModule,
   ],
   providers: config.isTest() ? undefined : [GlobalAccessLogger],
 })
