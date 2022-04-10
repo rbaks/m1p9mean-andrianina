@@ -26,6 +26,12 @@ export const DishNotFoundException = () =>
 export const DishAlreadyExistsException = () =>
   new ConflictException("Dish already exists.");
 
+export const RestaurantAlreadyExistsException = () =>
+  new ConflictException("Restaurant already exists.");
+
+export const RestoNotFoundException = () =>
+  new NotFoundException("Requested restaurant doest not exist.");
+
 export const OrderNotFoundException = () =>
   new NotFoundException("Requested order doest not exist.");
 

@@ -12,6 +12,7 @@ import {UserModule} from "./user/user.module";
 import {DishModule} from "./dish/dish.module";
 import config from "./config";
 import {OrderModule} from "./order/order.module";
+import {RestaurantModule} from "./restaurant/restaurant.module";
 
 const DEV_TRANSPORTER = {
   host: "smtp.ethereal.email",
@@ -38,6 +39,7 @@ const DEV_TRANSPORTER = {
     UserModule,
     DishModule,
     OrderModule,
+    RestaurantModule,
   ],
   providers: config.isTest() ? undefined : [GlobalAccessLogger],
 })
