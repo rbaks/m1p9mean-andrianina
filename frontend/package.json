@@ -5,6 +5,7 @@
     "publishToHeroku": "cd ../ && git subtree push --prefix frontend frontend main || true",
     "ng": "ng",
     "start": "node server.js",
+    "dev" : "node server.js --configuration development",
     "build": "ng build",
     "postinstall": "ng build --aot",
     "watch": "ng build --aot --watch --configuration development && yarn start",
