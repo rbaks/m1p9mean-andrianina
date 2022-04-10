@@ -6,6 +6,7 @@ export const DishSchema = new mongoose.Schema<Dish>(
     name: {type: String, required: true, unique: true},
     description: {type: String, required: true},
     price: {type: Number, required: true},
+    quantity: {type: Number, required: true, default: 1},
   },
   {timestamps: true},
 );
@@ -14,6 +15,6 @@ export const DishSchema = new mongoose.Schema<Dish>(
  * Methods.
  */
 DishSchema.methods.getPublicData = function () {
-  const {name, description, price} = this;
-  return {name, description, price};
+  const {name, description, price, quantity} = this;
+  return {name, description, price, quantity};
 };

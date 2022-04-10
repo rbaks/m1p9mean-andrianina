@@ -15,6 +15,7 @@ export type Dish = {
   name: string;
   description: string;
   price: number;
+  quantity: number;
 } & Document &
   DishMethods;
 
@@ -29,4 +30,9 @@ export class CreateDishDto {
   @Min(0)
   @Max(1000000)
   readonly price!: number;
+
+  @IsInt()
+  @Min(0)
+  @Max(1000000)
+  readonly quantity!: number;
 }

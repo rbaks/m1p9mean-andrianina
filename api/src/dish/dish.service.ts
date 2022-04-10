@@ -21,6 +21,7 @@ export class DishService {
         name: createDish.name,
         description: createDish.description,
         price: createDish.price,
+        quantity: createDish.quantity,
       });
 
       return dish;
