@@ -21,7 +21,10 @@ export const LoginCredentialsException = () =>
   new UnauthorizedException("Login credentials are wrong.");
 
 export const DishNotFoundException = () =>
-  new UnauthorizedException("Requested dish doest not exist.");
+  new NotFoundException("Requested dish doest not exist.");
 
 export const DishAlreadyExistsException = () =>
   new ConflictException("Dish already exists.");
+
+export const OrderNotFoundException = () =>
+  new NotFoundException("Requested order doest not exist.");
