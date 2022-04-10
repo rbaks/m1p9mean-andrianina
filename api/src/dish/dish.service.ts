@@ -61,4 +61,15 @@ export class DishService {
 
     return dish;
   }
+
+  async incrementDecrement(id: string, qtt: number) {
+    try {
+      return await this.dishModel.findOneAndUpdate(
+        {_id: id},
+        {$inc: {quantity: qtt}},
+      );
+    } catch (error) {
+      throw new Error(`Error changing dish quantity. ${error}`);
+    }
+  }
 }

@@ -25,4 +25,9 @@ export class DishController {
   getById(@Param("dishId") dishId: string) {
     return this.dishService.findById(dishId);
   }
+
+  @Post("/:dishId/incdec")
+  addRemove(@Param("dishId") dishId: string, @Body() body: {quantity: number}) {
+    return this.dishService.incrementDecrement(dishId, body.quantity);
+  }
 }
