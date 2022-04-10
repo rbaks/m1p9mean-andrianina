@@ -9,6 +9,6 @@ export const environment = {
   production: false,
   logLevel: NgxLoggerLevel.TRACE,
   serverLogLevel: NgxLoggerLevel.OFF,
-  // apiUrl: "http://localhost:3001/api",
-  apiUrl: "https://ekaly-backend.herokuapp.com/api",
+  apiUrl: "http://localhost:3001/api",
+  // apiUrl: "https://ekaly-backend.herokuapp.com/api",
 };
