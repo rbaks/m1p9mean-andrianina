@@ -16,6 +16,11 @@ export class DishController {
     return this.dishService.create(dish);
   }
 
+  @Get()
+  find() {
+    return this.dishService.find();
+  }
+
   @Get("/:dishId")
   getById(@Param("dishId") dishId: string) {
     return this.dishService.findById(dishId);

@@ -4,8 +4,8 @@ export default {
   isTest,
   mail: {
     from: {
-      name: "Your Name",
-      address: "youremail@example.com",
+      name: "m1p9mean Andrianina",
+      address: "andrianina@m1p9.com",
     },
   },
   cors: {

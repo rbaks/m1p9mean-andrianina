@@ -29,6 +29,15 @@ export class DishService {
     }
   }
 
+  async find(): Promise<Dish[]> {
+    try {
+      const dishes = await this.dishModel.find({});
+      return dishes;
+    } catch {
+      throw new Error("Error retrieving dishes.");
+    }
+  }
+
   async findById(id: string): Promise<Dish> {
     const dish = await this.dishModel.findById(id);
 

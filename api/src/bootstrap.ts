@@ -29,7 +29,7 @@ export async function bootstrap() {
 
   configureApp(app);
 
-  // setupSwaggerDocuments(app);
+  setupSwaggerDocuments(app);
 
   await app.listen(process.env.PORT!);
 }
