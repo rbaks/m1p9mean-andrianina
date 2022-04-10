@@ -28,3 +28,6 @@ export const DishAlreadyExistsException = () =>
 
 export const OrderNotFoundException = () =>
   new NotFoundException("Requested order doest not exist.");
+
+export const DishNotEnoughException = () =>
+  new ForbiddenException("Not enough dishes to make order.");
