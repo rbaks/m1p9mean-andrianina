@@ -45,7 +45,7 @@ export class DishService {
       throw DishNotFoundException();
     }
 
-    return dish!;
+    return dish;
   }
 
   async findByName(name: string): Promise<Dish> {
@@ -58,6 +58,6 @@ export class DishService {
       throw DishNotFoundException();
     }
 
-    return dish!;
+    return dish;
   }
 }
