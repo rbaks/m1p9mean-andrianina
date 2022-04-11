@@ -10,7 +10,7 @@ export default {
   },
   cors: {
     // https://github.com/expressjs/cors#configuration-options
-    origin: process.env.CORS_ORIGIN,
+    origin: "https://m1p9mean-andrianina.herokuapp.com/",
     methods: "POST,GET,PUT,OPTIONS,DELETE",
     allowedHeaders:
       "Timezone-Offset,Origin,X-Requested-With,Content-Type,Accept,Authorization",
