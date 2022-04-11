@@ -3,13 +3,14 @@ import { DishFilter } from './dish-filter';
 import { Injectable } from '@angular/core';
 import { EMPTY, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { environment } from '@environments/environment.prod';
 
 const headers = new HttpHeaders().set('Accept', 'application/json');
 
 @Injectable()
 export class DishService {
   dishList: Dish[] = [];
-  api = 'http://localhost:3001/api/dishes';
+  api = `${environment.apiUrl}/dishes`;
 
   constructor(private http: HttpClient) {}
 
