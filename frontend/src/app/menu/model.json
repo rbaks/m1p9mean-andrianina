@@ -1,0 +1,39 @@
+{
+  "title": "Dish",
+  "entity": "dish",
+  "api": {
+    "url": "http://localhost:3001/api/dishes"
+  },
+  "filter": ["name"],
+  "fields": [
+    {
+      "name": "_id",
+      "label": "Id",
+      "isId": true,
+      "readonly": true,
+      "type": "number"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "label": "Name"
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "label": "Description"
+    },
+    {
+      "name": "price",
+      "type": "number",
+      "control": "number",
+      "label": "Price"
+    },
+    {
+      "name": "quantity",
+      "type": "number",
+      "control": "number",
+      "label": "Quantity"
+    }
+  ]
+}

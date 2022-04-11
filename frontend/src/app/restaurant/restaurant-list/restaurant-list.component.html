@@ -1,0 +1,41 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+    <li class="breadcrumb-item active">Restaurant</li>
+  </ol>
+</nav>
+<h2>Restaurant List <strong>only visible by Admin</strong></h2>
+<form #f="ngForm">
+
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input [(ngModel)]="filter.name" id="name" name="name" class="form-control ml-2 mr-2">
+  </div>
+
+  <button (click)="search()" [disabled]="!f?.valid" class="btn btn-primary">Search</button>
+  <a [routerLink]="['../restaurants', 'new' ]" class="btn btn-default ml-2">New</a>
+</form>
+<div *ngIf="restaurantList.length > 0">
+  <div *ngIf="feedback.message" class="alert alert-{{feedback.type}}">{{ feedback.message }}</div>
+  <div class="table-responsive">
+    <table class="table table-centered table-hover mb-0" id="datatable">
+      <thead>
+        <tr>
+          <th class="border-top-0" scope="col">Id</th>
+          <th class="border-top-0" scope="col">Name</th>
+          <th class="border-top-0" scope="col" style="width:120px"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of restaurantList" [class.active]="item === selectedRestaurant">
+          <td>{{item._id}}</td>
+          <td>{{item.name}}</td>
+          <td style="white-space: nowrap">
+            <a [routerLink]="['../restaurants', item._id ]" class="btn btn-secondary">Edit</a>&nbsp;
+            <button (click)="delete(item)" class="btn btn-danger">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

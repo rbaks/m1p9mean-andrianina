@@ -1,0 +1,22 @@
+{
+  "title": "Restaurant",
+  "entity": "restaurant",
+  "api": {
+    "url": "http://localhost:3001/api/restaurants"
+  },
+  "filter": ["name"],
+  "fields": [
+    {
+      "name": "_id",
+      "label": "Id",
+      "isId": true,
+      "readonly": true,
+      "type": "number"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "label": "Name"
+    }
+  ]
+}

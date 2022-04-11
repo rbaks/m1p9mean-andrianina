@@ -1,0 +1,25 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+    <li class="breadcrumb-item active">Restaurant</li>
+  </ol>
+</nav>
+<h2>Restaurant Detail</h2>
+<div *ngIf="feedback.message" class="alert alert-{{feedback.type}}">{{ feedback.message }}</div>
+<form *ngIf="restaurant" #editForm="ngForm" (ngSubmit)="save()">
+
+  <div class="form-group">
+    <label>Id</label>
+    {{restaurant._id || 'n/a'}} 
+  </div>
+
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input [(ngModel)]="restaurant.name" id="name" name="name" class="form-control">
+  </div>
+
+  <div class="btn-group mt-3" role="group">
+    <button type="submit" class="btn btn-primary" [disabled]="!editForm.form.valid">Save</button>
+    <button type="button" class="btn btn-secondary ml-2" (click)="cancel()">Cancel</button>
+  </div>
+</form>
