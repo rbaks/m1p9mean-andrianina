@@ -2,7 +2,7 @@
   "name": "scratch",
   "version": "0.0.0",
   "scripts": {
-    "publishToHeroku": "cd ../ && git subtree push --prefix frontend backend main || true",
+    "publishToHeroku": "cd ../ && git subtree push --prefix frontend frontend main || true",
     "postinstall": "ng build --aot",
     "ng": "ng",
     "start": "node server.js",
