@@ -1,9 +1,11 @@
 import {Document} from "mongoose";
+import {Role} from "src/auth/auth.interface";
 
 export type UserPublicData = Readonly<{
   id: string;
   email: string;
   isActive: boolean;
+  role: Role;
 }>;
 
 export type UserMethods = {
@@ -18,6 +20,7 @@ export type User = Readonly<{
   isActive: boolean;
   activationExpires: string;
   activationToken: string;
+  role: Role;
 }> &
   UserMethods &
   Document;

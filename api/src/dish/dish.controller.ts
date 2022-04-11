@@ -1,9 +1,9 @@
-import {Controller, Get, Post, Param, Body} from "@nestjs/common";
+import {Controller, Get, Post, Param, Body, Put, Delete} from "@nestjs/common";
 import {AuthGuard} from "@nestjs/passport";
 import {Request} from "express";
 
 import {ApiTags} from "@nestjs/swagger";
-import {CreateDishDto} from "./dish.interface";
+import {CreateDishDto, Dish} from "./dish.interface";
 import {DishService} from "./dish.service";
 
 @ApiTags("dish")
@@ -24,6 +24,16 @@ export class DishController {
   @Get("/:dishId")
   getById(@Param("dishId") dishId: string) {
     return this.dishService.findById(dishId);
+  }
+
+  @Delete("/:dishId")
+  delete(@Param("dishId") dishId: string) {
+    return this.dishService.delete(dishId);
+  }
+
+  @Put("/:dishId")
+  update(@Param("dishId") dishId: string, @Body() body: Dish) {
+    return this.dishService.update(dishId, body);
   }
 
   @Post("/:dishId/incdec")

@@ -11,6 +11,11 @@ export const UserSchema = new mongoose.Schema<User>(
     isActive: {type: Boolean, default: false},
     activationToken: String,
     activationExpires: Date,
+    role: {
+      type: String,
+      enum: ["Customer", "Admin", "Delivery", "Restaurant"],
+      required: true,
+    },
   },
   {timestamps: true},
 );

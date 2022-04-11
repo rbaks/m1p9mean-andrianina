@@ -38,10 +38,18 @@ export class AuthService {
     };
   }
 
-  async login(user: User) {
+  async login(_user: User) {
+    const user = await this.userService.findById(_user.id);
+    const token = this.jwtService.sign({}, {subject: `${user.id}`});
     return {
-      token: this.jwtService.sign({}, {subject: `${user.id}`}),
-      user: user.getPublicData(),
+      token,
+      user: {
+        id: user.id,
+        email: user.email,
+        isActive: user.isActive,
+        role: user.role,
+        token,
+      },
     };
   }
 
@@ -49,6 +57,7 @@ export class AuthService {
     const user = await this.userService.create(
       userData.email,
       userData.password,
+      userData.role,
       origin,
     );
 

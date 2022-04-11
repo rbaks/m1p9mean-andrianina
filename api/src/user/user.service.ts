@@ -14,6 +14,7 @@ import {
 
 import {User} from "./user.interface";
 import {UserMailerService} from "./user.mailer.service";
+import {Role} from "src/auth/auth.interface";
 
 @Injectable()
 export class UserService {
@@ -25,13 +26,19 @@ export class UserService {
    * Creates user and sends activation email.
    * @throws duplicate key error when
    */
-  async create(email: string, password: string, origin: string): Promise<User> {
+  async create(
+    email: string,
+    password: string,
+    role: Role,
+    origin: string,
+  ): Promise<User> {
     try {
       const user = await this.userModel.create({
         email: email.toLowerCase(),
         password: await hashPassword(password),
         activationToken: uuid(),
         activationExpires: Date.now() + config.auth.activationExpireInMs,
+        role: role,
       });
 
       this.userMailer.sendActivationMail(
@@ -55,6 +62,11 @@ export class UserService {
     }
 
     return user;
+  }
+
+  async find(): Promise<User[]> {
+    const users = await this.userModel.find({});
+    return users;
   }
 
   async findByEmail(email: string): Promise<User> {

@@ -49,6 +49,14 @@ export class DishService {
     return dish;
   }
 
+  async delete(id: string) {
+    return await this.dishModel.findByIdAndDelete({_id: id});
+  }
+
+  async update(id: string, body: Dish) {
+    return await this.dishModel.findByIdAndUpdate({_id: id}, body);
+  }
+
   async findByName(name: string): Promise<Dish> {
     const dish = await this.dishModel.findOne(
       {name: name.toLowerCase()},

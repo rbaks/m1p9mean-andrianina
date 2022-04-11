@@ -4,6 +4,7 @@ import {
   MaxLength,
   IsUUID,
   IsNotEmpty,
+  IsEnum,
 } from "class-validator";
 import {ApiProperty} from "@nestjs/swagger";
 
@@ -28,6 +29,9 @@ export class SignUpDto {
   @ApiProperty({example: "password", minLength: 8})
   @MinLength(8)
   readonly password!: string;
+
+  @IsEnum(["Customer", "Admin", "Delivery", "Restaurant"])
+  readonly role!: Role;
 }
 
 export class LoginDto {
@@ -61,4 +65,11 @@ export class ResetPasswordDto {
   @ApiProperty({example: "password", minLength: 8})
   @MinLength(8)
   readonly password!: string;
+}
+
+export enum Role {
+  Customer = "Customer",
+  Admin = "Admin",
+  Delivery = "Delivery",
+  Restaurant = "Restaurant",
 }
