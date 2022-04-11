@@ -41,13 +41,6 @@ export class UserService {
         role: role,
       });
 
-      this.userMailer.sendActivationMail(
-        user.email,
-        user.id,
-        user.activationToken,
-        origin,
-      );
-
       return user;
     } catch {
       throw EmailAlreadyUsedException();
@@ -129,12 +122,6 @@ export class UserService {
     if (!user) {
       throw UserNotFoundException();
     }
-
-    this.userMailer.sendForgottenPasswordMail(
-      user.email,
-      user.passwordResetToken,
-      origin,
-    );
   }
 
   async resetPassword(
@@ -165,8 +152,6 @@ export class UserService {
     if (!user) {
       throw PasswordResetTokenInvalidException();
     }
-
-    this.userMailer.sendResetPasswordMail(user.email);
 
     return user;
   }
